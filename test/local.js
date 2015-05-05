@@ -1,0 +1,1 @@
+require('./specs/router.spec.js');

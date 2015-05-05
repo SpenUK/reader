@@ -1,0 +1,14 @@
+<h2>WP Article</h2>
+
+<div class="wp-post__wrapper {{#unless selected}} out-of-focus{{/unless}}">
+  <div class="click-block"></div>
+  <article class="wp-post" id="{{slug}}">
+      <div class="wp-post__header">
+        <h1>{{title}}</h1>
+        <h4 class="date">{{#format_wp_date date}}{{date}}{{/format_wp_date}} </h4> {{!-- date needed? --}}
+      </div>
+
+      <div class="wp-post__content">{{{content}}}</div>
+
+  </article>
+</div>
