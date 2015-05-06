@@ -1,0 +1,251 @@
+/* Clearfix utility class */
+.clearfix:before, .clearfix:after {
+  content: " ";
+  display: table;
+}
+.clearfix:after {
+  clear: both;
+}
+
+/* Grid css is usually generated with SCSS to make it full configurable */
+
+.grid-container {
+  box-sizing: border-box;
+  margin: 0 auto;
+  position: relative; 
+}
+  
+  /* grid container should always clearix as grid columns are floated */
+  .grid-container:before, .grid-container:after {
+    content: " ";
+    display: table; 
+  }
+  .grid-container:after {
+    clear: both; 
+  }
+
+  .grid-container .grid-row {
+    margin-left: 0px; 
+  }
+    .grid-container .grid-row:before, .grid-container .grid-row:after {
+      content: " ";
+      display: table; 
+    }
+    .grid-container .grid-row:after {
+      clear: both; 
+    }
+
+    /* This line actually has no use here, but usually would pull back the effect of the grid's guttering */
+    .grid-container .grid-row:first-child {
+      margin-top: 0px; 
+    }
+
+@media only screen and (min-width: 0px) {
+  .grid-container {
+    width: 100%;
+    max-width: 100%;
+  }
+    .grid-container.fixed {
+      width: 100%;
+    }
+    .grid-container .grid-row .small-1 {
+      width: 8.33333%;
+      display: inline-block;
+      float: left;
+      padding-left: 0px;
+      padding-top: 0px;
+    }
+    .grid-container .grid-row .small-2 {
+      width: 16.66667%;
+      display: inline-block;
+      float: left;
+      padding-left: 0px;
+      padding-top: 0px;
+    }
+    .grid-container .grid-row .small-3 {
+      width: 25%;
+      display: inline-block;
+      float: left;
+      padding-left: 0px;
+      padding-top: 0px;
+    }
+    .grid-container .grid-row .small-4 {
+      width: 33.33333%;
+      display: inline-block;
+      float: left;
+      padding-left: 0px;
+      padding-top: 0px;
+    }
+    .grid-container .grid-row .small-5 {
+      width: 41.66667%;
+      display: inline-block;
+      float: left;
+      padding-left: 0px;
+      padding-top: 0px;
+    }
+    .grid-container .grid-row .small-6 {
+      width: 50%;
+      display: inline-block;
+      float: left;
+      padding-left: 0px;
+      padding-top: 0px;
+    }
+    .grid-container .grid-row .small-7 {
+      width: 58.33333%;
+      display: inline-block;
+      float: left;
+      padding-left: 0px;
+      padding-top: 0px;
+    }
+    .grid-container .grid-row .small-8 {
+      width: 66.66667%;
+      display: inline-block;
+      float: left;
+      padding-left: 0px;
+      padding-top: 0px;
+    }
+    .grid-container .grid-row .small-9 {
+      width: 75%;
+      display: inline-block;
+      float: left;
+      padding-left: 0px;
+      padding-top: 0px;
+    }
+    .grid-container .grid-row .small-10 {
+      width: 83.33333%;
+      display: inline-block;
+      float: left;
+      padding-left: 0px;
+      padding-top: 0px;
+    }
+    .grid-container .grid-row .small-11 {
+      width: 91.66667%;
+      display: inline-block;
+      float: left;
+      padding-left: 0px;
+      padding-top: 0px;
+    }
+    .grid-container .grid-row .small-12 {
+      width: 100%;
+      display: inline-block;
+      float: left;
+      padding-left: 0px;
+      padding-top: 0px;
+    }
+
+  .small-up-hidden {
+    display: none !important;
+  } 
+}
+
+@media only screen and (min-width: 0px) and (max-width: 799px) {
+  .small-hidden {
+    display: none !important;
+  } 
+}
+
+@media only screen and (min-width: 800px) {
+  .grid-container {
+    width: 100%;
+    max-width: 800px;
+  }
+    .grid-container.fixed {
+      width: 800px;
+    }
+    .grid-container .grid-row .medium-1 {
+      width: 8.33333%;
+      display: inline-block;
+      float: left;
+      padding-left: 0px;
+      padding-top: 0px;
+    }
+    .grid-container .grid-row .medium-2 {
+      width: 16.66667%;
+      display: inline-block;
+      float: left;
+      padding-left: 0px;
+      padding-top: 0px;
+    }
+    .grid-container .grid-row .medium-3 {
+      width: 25%;
+      display: inline-block;
+      float: left;
+      padding-left: 0px;
+      padding-top: 0px;
+    }
+    .grid-container .grid-row .medium-4 {
+      width: 33.33333%;
+      display: inline-block;
+      float: left;
+      padding-left: 0px;
+      padding-top: 0px;
+    }
+    .grid-container .grid-row .medium-5 {
+      width: 41.66667%;
+      display: inline-block;
+      float: left;
+      padding-left: 0px;
+      padding-top: 0px;
+    }
+    .grid-container .grid-row .medium-6 {
+      width: 50%;
+      display: inline-block;
+      float: left;
+      padding-left: 0px;
+      padding-top: 0px;
+    }
+    .grid-container .grid-row .medium-7 {
+      width: 58.33333%;
+      display: inline-block;
+      float: left;
+      padding-left: 0px;
+      padding-top: 0px;
+    }
+    .grid-container .grid-row .medium-8 {
+      width: 66.66667%;
+      display: inline-block;
+      float: left;
+      padding-left: 0px;
+      padding-top: 0px;
+    }
+    .grid-container .grid-row .medium-9 {
+      width: 75%;
+      display: inline-block;
+      float: left;
+      padding-left: 0px;
+      padding-top: 0px;
+    }
+    .grid-container .grid-row .medium-10 {
+      width: 83.33333%;
+      display: inline-block;
+      float: left;
+      padding-left: 0px;
+      padding-top: 0px;
+    }
+    .grid-container .grid-row .medium-11 {
+      width: 91.66667%;
+      display: inline-block;
+      float: left;
+      padding-left: 0px;
+      padding-top: 0px;
+    }
+    .grid-container .grid-row .medium-12 {
+      width: 100%;
+      display: inline-block;
+      float: left;
+      padding-left: 0px;
+      padding-top: 0px;
+    }
+
+  .medium-up-hidden {
+    display: none !important;
+  }
+}
+
+@media only screen and (min-width: 800px) and (max-width: 1440px) {
+  .medium-hidden {
+    display: none !important;
+  }
+}
+
+/*# sourceMappingURL=main.css.map */

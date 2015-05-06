@@ -57,6 +57,8 @@ module.exports =  window.Backbone.Router.extend({
 			// Returns undefined if there is no match, which the view will handle
 			var model = collection.findWhere({slug: slug});
 
+			console.log(model);
+
 			(new App.extensions.views.article({
 				model: model,
 				container: App.entryPoint

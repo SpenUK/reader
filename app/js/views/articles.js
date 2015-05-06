@@ -15,8 +15,24 @@ module.exports = window.Backbone.View.extend({
 		return this;
 	},
 
-	toRender: function () {
-		return this.$el.html(this.template());
+	toRender: function (options) {
+		options = (options || {});
+		var view = this;
+		var collection = view.collection;
+		var models = collection.models;
+
+		// if (options.fetch) {
+		// 	this.collection.fetch({
+		// 		success: function(){
+		// 			view.render();
+		// 		}
+		// 	});	
+		// };
+
+		
+
+		console.log(models);
+		return this.$el.html(this.template({models: models, tag: collection.tag, length: models.length}));
 	},
 
 	render: function(){

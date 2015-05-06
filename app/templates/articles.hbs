@@ -1,1 +1,7 @@
-<h2>WP Articles</h2>
+<h2>WP Articles {{tag}} - {{length}}</h2>
+
+{{#each models}}
+		{{#with this.attributes}}
+				<h4>model: <a href="#/{{../../tag}}/{{slug}}"> {{slug}}</a></h4>
+		{{/with}}
+{{/each}}
