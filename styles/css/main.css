@@ -1,0 +1,52 @@
+/*
+	Colors
+		Background : #eee;
+		lightblue : rgba(81, 166, 200,1);
+		Black: #333;
+
+	Fonts
+		Copy: ;
+		Display: ;
+
+*/
+
+html, body {
+	height: 100%;
+}
+
+html {
+	overflow: hidden;
+}
+
+body {
+  min-height: 100%;
+  background-color: #eee;
+  position: relative;
+  color: #333;
+  overflow-x: hidden;
+}
+
+p {
+	font-size: 1.2em;
+}
+
+h2 {
+	font-size: 1.8em;
+}
+
+body.no-scroll, 
+html.no-scroll {
+	overflow: hidden;
+	overflow-x: hidden;
+	overflow-y: hidden;
+}
+
+a {
+	text-decoration: none;
+	color: rgba(81, 166, 200,1);
+}
+
+ul {
+	padding-left: 0;
+	list-style: none;
+}
