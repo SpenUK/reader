@@ -7,7 +7,7 @@ var extensions = require('./extensions.js');
 var App = {
 
   templates: templates,
-  entryPoint: 'div.app',
+  entryPoint: 'body .app',
   
   // Set up for cachable Backbone classes
   views: {},
@@ -21,5 +21,5 @@ var App = {
   	this.router = new router(this);
   }
 };
-
+// Assigning App to the global (window)
 global.App = App;
