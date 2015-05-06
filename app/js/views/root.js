@@ -1,6 +1,7 @@
 'use strict';
 
 var templates = require('../templates.js');
+var suggestedTags = require('../suggestedTags');
 
 module.exports = window.Backbone.View.extend({
 	
@@ -16,11 +17,10 @@ module.exports = window.Backbone.View.extend({
 	},
 
 	toRender: function () {
-		return this.$el.html(this.template());
+		return this.$el.html(this.template({tags: suggestedTags}));
 	},
 
 	render: function(){
-
 		this.$container.html(this.toRender());
 
 		return this;

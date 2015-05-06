@@ -14,7 +14,8 @@ module.exports = window.Backbone.Collection.extend({
 
   	this.fetch({
   		success: function(){
-  			console.log(collection.length, collection);
+  			// Triggering an event through Backbones eventing system - to be picked up by the view to re-render
+  			window.Backbone.trigger( collection.tag + ':fetchResponse');
   		}
   	});
   },

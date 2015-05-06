@@ -18,7 +18,6 @@ module.exports = window.Backbone.View.extend({
 	toRender: function () {
 		var templateData = this.model ? {article: this.model.toJSON()} : {};
 
-		console.log(templateData);
 		return this.$el.html(this.template(templateData));
 	},
 

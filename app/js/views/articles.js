@@ -12,6 +12,10 @@ module.exports = window.Backbone.View.extend({
 		options = (options || {});
 		this.$container = $(this.container = options.container);
 
+		var view = this;
+
+		this.listenToOnce(window.Backbone, this.collection.tag + ':fetchResponse', view.render);
+
 		return this;
 	},
 
@@ -21,23 +25,12 @@ module.exports = window.Backbone.View.extend({
 		var collection = view.collection;
 		var models = collection.models;
 
-		// if (options.fetch) {
-		// 	this.collection.fetch({
-		// 		success: function(){
-		// 			view.render();
-		// 		}
-		// 	});	
-		// };
-
-		
-
 		console.log(models);
 		return this.$el.html(this.template({models: models, tag: collection.tag, length: models.length}));
 	},
 
 	render: function(){
 		// options = (options || {});
-
 		this.$container.html(this.toRender());
 
 		return this;
