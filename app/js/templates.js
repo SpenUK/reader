@@ -61,9 +61,9 @@ this["JST"]["articles"] = Handlebars.template({"1":function(depth0,helpers,parti
   if (stack1 != null) { buffer += stack1; }
   return buffer + "\n";
 },"6":function(depth0,helpers,partials,data,depths) {
-  var stack1, helper, lambda=this.lambda, escapeExpression=this.escapeExpression, functionType="function", helperMissing=helpers.helperMissing, buffer = "				<li class=\"article-listing\">\n					<div class=\"avatar\" style=\"background-image: url("
+  var stack1, helper, lambda=this.lambda, escapeExpression=this.escapeExpression, functionType="function", helperMissing=helpers.helperMissing, buffer = "				<li class=\"article-listing\">\n					<div class=\"article-listing__container\">\n						<div class=\"avatar\" style=\"background-image: url("
     + escapeExpression(lambda(((stack1 = (depth0 != null ? depth0.author : depth0)) != null ? stack1.avatar_URL : stack1), depth0))
-    + ");\"></div>\n					<div class=\"article-listing__details\">\n						<a href=\"#/"
+    + ");\"></div>\n						<div class=\"article-listing__details\">\n							<div class=\"truncater\">\n								<a class=\"article-listing__title truncate\" href=\"#/"
     + escapeExpression(lambda((depths[2] != null ? depths[2].tag : depths[2]), depth0))
     + "/"
     + escapeExpression(((helper = (helper = helpers.slug || (depth0 != null ? depth0.slug : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"slug","hash":{},"data":data}) : helper)))
@@ -72,18 +72,18 @@ this["JST"]["articles"] = Handlebars.template({"1":function(depth0,helpers,parti
     + "</a> \n";
   stack1 = helpers['with'].call(depth0, (depth0 != null ? depth0.author : depth0), {"name":"with","hash":{},"fn":this.program(7, data, depths),"inverse":this.noop,"data":data});
   if (stack1 != null) { buffer += stack1; }
-  return buffer + "					</div>\n				</li>\n";
+  return buffer + "							</div>\n						</div>\n					</div>\n				</li>\n				<hr>\n";
 },"7":function(depth0,helpers,partials,data) {
   var helper, functionType="function", helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
-  return "							<p>By: <a href=\""
-    + escapeExpression(((helper = (helper = helpers.URL || (depth0 != null ? depth0.URL : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"URL","hash":{},"data":data}) : helper)))
+  return "									<p class=\"by-line truncate\">By: <a href=\""
+    + escapeExpression(((helper = (helper = helpers.author_URL || (depth0 != null ? depth0.author_URL : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"author_URL","hash":{},"data":data}) : helper)))
     + "\" target=\"_blank\"></a>"
     + escapeExpression(((helper = (helper = helpers.nice_name || (depth0 != null ? depth0.nice_name : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"nice_name","hash":{},"data":data}) : helper)))
     + "</p>\n";
 },"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data,depths) {
-  var stack1, helper, functionType="function", helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression, buffer = "<h2>"
+  var stack1, helper, functionType="function", helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression, buffer = "<h2>Results for '"
     + escapeExpression(((helper = (helper = helpers.tag || (depth0 != null ? depth0.tag : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"tag","hash":{},"data":data}) : helper)))
-    + "</h2>\n\n";
+    + "'</h2>\n\n";
   stack1 = helpers['if'].call(depth0, (depth0 != null ? depth0.loading : depth0), {"name":"if","hash":{},"fn":this.program(1, data, depths),"inverse":this.program(3, data, depths),"data":data});
   if (stack1 != null) { buffer += stack1; }
   return buffer;
