@@ -1,0 +1,11 @@
+.article__content {
+	width: 800px;
+	max-width: 100%;
+	margin: 0 auto;
+}
+
+.article__content *,
+.article__content img {	
+	max-width: 100% !important;
+  height: auto !important;
+}
