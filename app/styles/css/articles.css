@@ -1,3 +1,15 @@
+/* Avatar */
+
+.avatar {
+	width: 92px;
+	height: 92px;
+	border: 2px solid rgba(0,0,0, .2);
+	border-radius: 50%;
+	background-size: cover;
+	background-position: 50%;
+	background-repeat: no-repeat;
+}
+
 .article__content {
 	width: 800px;
 	max-width: 100%;
@@ -9,3 +21,35 @@
 	max-width: 100% !important;
   height: auto !important;
 }
+
+/* Listing */
+
+.articles-list {
+}
+
+.article-listing {
+	position: relative;
+	min-height: 100px;
+	padding: 2px;
+	padding-left: 110px;
+	margin: 20px auto;
+	display: table;
+	width: 100%;
+}
+
+	.article-listing__details {
+		display: table-cell;
+		vertical-align: middle;
+	}
+
+	.article-listing__details p {
+		margin-bottom: 0;
+	}
+
+	.article-listing .avatar {
+		position: absolute;
+		top: 50%;
+		margin-top: -48px;
+		left: 0;
+	}
+

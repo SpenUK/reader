@@ -4,15 +4,21 @@
 	<h4>Loading...</h4>
 {{else}}
 	{{#if models}}
-		<ul>
+		<ul class="articles-list">
 		{{#each models}}
 
 			{{#with this.attributes}}
-				<li>
-					<a href="#/{{../../tag}}/{{slug}}"> {{slug}}</a>
+				<li class="article-listing">
+					<div class="avatar" style="background-image: url({{author.avatar_URL}});"></div>
+					<div class="article-listing__details">
+						<a href="#/{{../../tag}}/{{slug}}"> {{title}}</a> 
+						{{#with author}}
+							<p>By: <a href="{{URL}}" target="_blank"></a>{{nice_name}}</p>
+						{{/with}}
+					</div>
 				</li>
 			{{/with}}
-			
+
 		{{/each}}
 		</ul>
 	{{/if}}

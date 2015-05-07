@@ -12,10 +12,6 @@ module.exports = window.Backbone.View.extend({
 		options = (options || {});
 		this.$container = $(this.container = options.container);
 
-		var view = this;
-
-		this.listenToOnce(window.Backbone, this.collection.tag + ':fetchResponse', view.render);
-
 		return this;
 	},
 
