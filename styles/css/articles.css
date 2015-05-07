@@ -24,32 +24,50 @@
 
 /* Listing */
 
-.articles-list {
+.articles-list hr {
+	border: none;
+	border-bottom: 1px solid rgba(0,0,0, .125);
+}
+
+.articles-list hr:last-child {
+	display: none;
 }
 
 .article-listing {
 	position: relative;
 	min-height: 100px;
-	padding: 2px;
-	padding-left: 110px;
+	/*padding: 2px;*/
+	padding: 0;
+	/*padding-left: 110px;*/
 	margin: 20px auto;
-	display: table;
+	/*display: table;*/
 	width: 100%;
 }
 
 	.article-listing__details {
-		display: table-cell;
+		display: inline-block;
 		vertical-align: middle;
+		max-width: 700px;
+		max-width: calc(100% - 100px);
+		box-sizing: border-box;
+		padding: 10px;
 	}
 
 	.article-listing__details p {
 		margin-bottom: 0;
 	}
 
+	.article-listing__details .truncater {
+		display: block;
+	}
+
+	.article-listing__details .truncater .article-listing__title,
+	.article-listing__details .truncater .by-line {
+		display: block;
+	}
+
 	.article-listing .avatar {
-		position: absolute;
-		top: 50%;
-		margin-top: -48px;
-		left: 0;
+		display: inline-block;
+		vertical-align: middle;
 	}
 
