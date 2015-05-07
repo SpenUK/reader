@@ -1,18 +1,7 @@
 'use strict';
 
-function findOrCreateCollectionByTag(tag) {
-	var App = global.App;
-
-	App.collections[tag] = (
-		App.collections[tag] || new App.extensions.collections.articles({
-														 	tag: tag
-														})
-	);
-
-	return App.collections[tag];
-}
+var findOrCreateCollectionByTag = require('./helpers/findOrCreateCollectionByTag.js');
 	
-
 module.exports =  window.Backbone.Router.extend({
 	routes: {
 		'': 'root',
@@ -55,10 +44,9 @@ module.exports =  window.Backbone.Router.extend({
 			var collection = findOrCreateCollectionByTag(tag);
 			// Get the first model in the collection with a macthing slug
 			// Returns undefined if there is no match, which the view will handle
-			var model = collection.findWhere({slug: slug});
-
 			(new App.extensions.views.article({
-				model: model,
+				collection: collection,
+				slug: slug,
 				container: App.entryPoint
 			})
 			).render();

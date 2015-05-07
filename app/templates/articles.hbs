@@ -1,7 +1,21 @@
-<h2>WP Articles {{tag}} - {{length}}</h2>
+<h2>{{tag}}</h2>
 
-{{#each models}}
-		{{#with this.attributes}}
-				<h4>model: <a href="#/{{../../tag}}/{{slug}}"> {{slug}}</a></h4>
-		{{/with}}
-{{/each}}
+{{#if loading }}
+	<h4>Loading...</h4>
+{{else}}
+	{{#if models}}
+		<ul>
+		{{#each models}}
+
+			{{#with this.attributes}}
+				<li>
+					<a href="#/{{../../tag}}/{{slug}}"> {{slug}}</a>
+				</li>
+			{{/with}}
+			
+		{{/each}}
+		</ul>
+	{{/if}}
+	
+
+{{/if}}
