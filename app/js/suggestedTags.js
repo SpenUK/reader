@@ -2,17 +2,17 @@ module.exports = (
 [{
 	name: 'javascript'
 },{
-	name: 'backbonejs'
+	name: 'backbone.js'
 },{
-	name: 'nodejs'
+	name: 'node.js'
 },{
-	name: 'iojs'
+	name: 'io.js'
 },{
 	name: 'ruby'
 },{
-	name: 'rubyonrails'
+	name: 'ruby-on-rails'
 },{
-	name: 'emberjs'
+	name: 'ember.js'
 },{
-	name: 'reactjs'	
+	name: 'react.js'	
 }]);

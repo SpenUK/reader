@@ -14,3 +14,4 @@ _SpecRunner.html
 app/js/templates.js
 
 .grunt/
+app/js/bundle.js

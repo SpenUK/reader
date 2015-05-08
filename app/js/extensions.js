@@ -1,5 +1,6 @@
 'use strict';
 
+var masterView = require('./views/master.js');
 var rootView = require('./views/root.js');
 var articleView = require('./views/article.js');
 var articlesView = require('./views/articles.js');
@@ -14,6 +15,7 @@ var articleModel = require('./models/article.js');
 module.exports = { 
 
   views: {
+    master          : masterView,
   	root 						: rootView,
 		article 				: articleView,
 		articles				: articlesView

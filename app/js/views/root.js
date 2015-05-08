@@ -11,7 +11,7 @@ module.exports = window.Backbone.View.extend({
 
 	initialize: function(options){
 		options = (options || {});
-		this.$container = $(this.container = options.container);
+		this.container = options.container ? $(options.container) : global.App.views.master.$el;
 
 		return this;
 	},
@@ -21,7 +21,7 @@ module.exports = window.Backbone.View.extend({
 	},
 
 	render: function(){
-		this.$container.html(this.toRender());
+		this.container.html(this.toRender());
 
 		return this;
 	}

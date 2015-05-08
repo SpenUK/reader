@@ -10,11 +10,35 @@ module.exports = window.Backbone.View.extend({
 
 	initialize: function(options){
 		options = (options || {});
-		this.$container = $(this.container = options.container);
+		this.container = options.container ? $(options.container) : global.App.views.master.$el;
 
 		return this;
 	},
+	events: {
+		'click p.try-again' : 'this.getNewRecords'
+	},
+	getNewRecords: function () {
+		var view = this;
+		var collection = this.collection;
 
+		// taking the current fragment to be checked after the fetch.
+		var fragment = window.Backbone.history.fragment;
+		collection.fetch({
+			success: function(){
+				// Only call render if the url fragment is the same, otherwise a user might navigate to another route,
+				// but the render would still be called and take effect.
+				if (fragment === window.Backbone.history.fragment) {
+					view.render();
+				}
+			},
+			error: function(){
+				view.renderError();
+			}
+		});
+
+		return this;
+
+	},
 	toRender: function (options) {
 		options = (options || {});
 		var view = this;
@@ -28,37 +52,24 @@ module.exports = window.Backbone.View.extend({
 
 	render: function(){
 		var view = this;
-		var collection = this.collection;
+		var collection = view.collection;
 
 		// Currently only fetching on render if the collection is empty,
 		// subsequent fetches for new records would be handled somewhere other than here
 		if (collection.length < 1) {
 
-			this.$container.html(this.toRender({loading: true}));
-
-			// taking the current fragment to be checked after the fetch.
-			var fragment = window.Backbone.history.fragment;
-			collection.fetch({
-				success: function(){
-					// Only call render if the url fragment is the same, otherwise a user might navigate to another route,
-					// but the render would still be called and take effect.
-					if (fragment === window.Backbone.history.fragment) {
-						view.render();	
-					}
-				},
-				error: function(){
-					view.renderError();
-				}
-			});
+			this.container.html(this.toRender({loading: true}));
+			this.getNewRecords();
 
 			return this;
 		}
-		this.$container.html(this.toRender());
+		this.container.html(this.toRender());
 
 		return this;
 	},
-	renderError: function (error) {
-		this.$container.html(this.toRender({error: error}));
+	renderError: function () {
+		console.log('errors');
+		this.container.html(this.toRender({errors: true}));
 	}
 
 });

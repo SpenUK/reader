@@ -31,8 +31,7 @@ module.exports =  window.Backbone.Router.extend({
 			// Not caching the view. Could be a future change if holding state for re-visits
 			// becomes desirable
 			(new App.extensions.views.articles({
-				collection: collection,
-				container: App.entryPoint
+				collection: collection
 			})
 			// rendering immediately after, keeps the calls to cached/non-cached views consistant
 			).render();
@@ -46,8 +45,7 @@ module.exports =  window.Backbone.Router.extend({
 			// Returns undefined if there is no match, which the view will handle
 			(new App.extensions.views.article({
 				collection: collection,
-				slug: slug,
-				container: App.entryPoint
+				slug: slug
 			})
 			).render();
 			

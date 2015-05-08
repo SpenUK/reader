@@ -1,32 +1,41 @@
 <h2>Results for '{{tag}}'</h2>
 
-{{#if loading }}
-	<h4>Loading...</h4>
-{{else}}
-	{{#if models}}
-		<ul class="articles-list">
-		{{#each models}}
+{{#if errors}}
+	<h4 class="error">Oops! Something went wrong!</h4>
+	<p class="try-again">Try again?</p>
 
-			{{#with this.attributes}}
-				<li class="article-listing">
-					<div class="article-listing__container">
-						<div class="avatar" style="background-image: url({{author.avatar_URL}});"></div>
-						<div class="article-listing__details">
-							<div class="truncater">
-								<a class="article-listing__title truncate" href="#/{{../../tag}}/{{slug}}"> {{title}}</a> 
-								{{#with author}}
-									<p class="by-line truncate">By: <a href="{{author_URL}}" target="_blank"></a>{{nice_name}}</p>
-								{{/with}}
+{{else}}
+
+	{{#if loading }}
+		<h4>Loading...</h4>
+	{{else}}
+		{{#if models}}
+			<ul class="articles-list">
+			{{#each models}}
+
+				{{#with this.attributes}}
+					<li class="article-listing">
+						<div class="article-listing__container">
+							<div class="avatar" style="background-image: url({{author.avatar_URL}});"></div>
+							<div class="article-listing__details">
+								<div class="truncater">
+									<a class="article-listing__title truncate" href="#/{{../../tag}}/{{slug}}"> {{title}}</a> 
+									{{#with author}}
+										<p class="by-line truncate">By: <a href="{{author_URL}}" target="_blank">{{nice_name}}</a></p>
+									{{/with}}
+								</div>
 							</div>
 						</div>
-					</div>
-				</li>
-				<hr>
-			{{/with}}
+					</li>
+					<hr>
+				{{/with}}
 
-		{{/each}}
-		</ul>
+			{{/each}}
+			</ul>
+		{{else}}
+			<h2>No articles found</h2>
+		{{/if}}
+		
 	{{/if}}
-	
 
 {{/if}}
