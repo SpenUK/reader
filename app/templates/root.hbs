@@ -1,5 +1,9 @@
 <h2>Root View</h2>
 
-{{#each tags}}
-	<a href="#/{{name}}">{{name}}</a>
-{{/each}}
+<ul class="tags">
+	{{#each tags}}
+		<li>
+			<a href="#/{{name}}">{{name}}</a>
+		</li>
+	{{/each}}
+</ul>

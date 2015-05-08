@@ -16,12 +16,14 @@
 				{{#with this.attributes}}
 					<li class="article-listing">
 						<div class="article-listing__container">
-							<div class="avatar" style="background-image: url({{author.avatar_URL}});"></div>
+							{{#with author}}
+							<a href="{{URL}}" target="_blank"><div class="avatar" style="background-image: url({{avatar_URL}});" alt="{{nice_name}}"></div></a>
+							{{/with}}
 							<div class="article-listing__details">
 								<div class="truncater">
 									<a class="article-listing__title truncate" href="#/{{../../tag}}/{{slug}}"> {{title}}</a> 
 									{{#with author}}
-										<p class="by-line truncate">By: <a href="{{author_URL}}" target="_blank">{{nice_name}}</a></p>
+										<p class="by-line truncate">By: <a href="{{URL}}" target="_blank">{{nice_name}}</a></p>
 									{{/with}}
 								</div>
 							</div>
