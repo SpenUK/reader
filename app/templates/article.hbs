@@ -1,4 +1,3 @@
-
 {{#if errors}}
   <h4 class="error">Oops! Something went wrong!</h4>
   <p class="try-again">Try again?</p>
@@ -15,9 +14,14 @@
           <article class="article" id="{{slug}}">
               <div class="article__header">
                 <h1>{{title}}</h1>
-                {{#with author}}
-                  <p class="by-line truncate">By: <a href="{{URL}}" target="_blank">{{nice_name}}</a></p>
-                {{/with}}
+                
+                  <p class="by-line truncate">By: 
+                    {{#with author}}
+                      <a href="{{URL}}" target="_blank">{{nice_name}}</a> 
+                    {{/with}}
+                    <a href="{{URL}}" target="_blank"><i class="fa fa-wordpress" alt="View at wordpress"></i></a>
+                  </p>
+                
                 <hr>
               </div>
 

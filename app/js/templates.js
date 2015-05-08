@@ -35,10 +35,12 @@ this["JST"]["article"] = Handlebars.template({"1":function(depth0,helpers,partia
     + escapeExpression(((helper = (helper = helpers.slug || (depth0 != null ? depth0.slug : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"slug","hash":{},"data":data}) : helper)))
     + "\">\n              <div class=\"article__header\">\n                <h1>"
     + escapeExpression(((helper = (helper = helpers.title || (depth0 != null ? depth0.title : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"title","hash":{},"data":data}) : helper)))
-    + "</h1>\n";
+    + "</h1>\n                \n                  <p class=\"by-line truncate\">By: \n";
   stack1 = helpers['with'].call(depth0, (depth0 != null ? depth0.author : depth0), {"name":"with","hash":{},"fn":this.program(11, data),"inverse":this.noop,"data":data});
   if (stack1 != null) { buffer += stack1; }
-  buffer += "                <hr>\n              </div>\n\n              <div class=\"article__content\">";
+  buffer += "                    <a href=\""
+    + escapeExpression(((helper = (helper = helpers.URL || (depth0 != null ? depth0.URL : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"URL","hash":{},"data":data}) : helper)))
+    + "\" target=\"_blank\"><i class=\"fa fa-wordpress\" alt=\"View at wordpress\"></i></a>\n                  </p>\n                \n                <hr>\n              </div>\n\n              <div class=\"article__content\">";
   stack1 = ((helper = (helper = helpers.content || (depth0 != null ? depth0.content : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"content","hash":{},"data":data}) : helper));
   if (stack1 != null) { buffer += stack1; }
   return buffer + "</div>\n          </article>\n        </div>\n";
@@ -46,19 +48,19 @@ this["JST"]["article"] = Handlebars.template({"1":function(depth0,helpers,partia
   return " out-of-focus";
   },"11":function(depth0,helpers,partials,data) {
   var helper, functionType="function", helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
-  return "                  <p class=\"by-line truncate\">By: <a href=\""
+  return "                      <a href=\""
     + escapeExpression(((helper = (helper = helpers.URL || (depth0 != null ? depth0.URL : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"URL","hash":{},"data":data}) : helper)))
     + "\" target=\"_blank\">"
     + escapeExpression(((helper = (helper = helpers.nice_name || (depth0 != null ? depth0.nice_name : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"nice_name","hash":{},"data":data}) : helper)))
-    + "</a></p>\n";
+    + "</a> \n";
 },"13":function(depth0,helpers,partials,data) {
   return "    	<h2>Article not found</h2>\n";
   },"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-  var stack1, buffer = "\n";
+  var stack1;
   stack1 = helpers['if'].call(depth0, (depth0 != null ? depth0.errors : depth0), {"name":"if","hash":{},"fn":this.program(1, data),"inverse":this.program(3, data),"data":data});
-  if (stack1 != null) { buffer += stack1; }
-  return buffer;
-},"useData":true});
+  if (stack1 != null) { return stack1; }
+  else { return ''; }
+  },"useData":true});
 
 this["JST"]["articles"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
   return "	<h4 class=\"error\">Oops! Something went wrong!</h4>\n	<p class=\"try-again\">Try again?</p>\n\n";
@@ -124,6 +126,10 @@ this["JST"]["articles"] = Handlebars.template({"1":function(depth0,helpers,parti
   if (stack1 != null) { buffer += stack1; }
   return buffer;
 },"useData":true,"useDepths":true});
+
+this["JST"]["header"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+  return "<div class=\"grid-container header__container\">\n	<div class=\"header__content\">\n\n		<div class=\"go-prev\">\n			<i class=\"fa fa-chevron-left\"></i>\n		</div>\n\n		<div class=\"go-next\">\n			<i class=\"fa fa-chevron-right\"></i>\n		</div>\n\n		<nav class=\"controls\">\n			<a href=\"/#\"><i class=\"fa fa-2x fa-home\"></i></a>\n		</nav>\n		\n\n		\n	</div>\n</div>";
+},"useData":true});
 
 this["JST"]["root"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
   var helper, functionType="function", helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;

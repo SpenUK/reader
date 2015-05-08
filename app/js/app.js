@@ -18,6 +18,7 @@ var App = {
 
   initialize: function(){
     this.views.master = new this.extensions.views.master({el: this.entryPoint});
+    this.views.header = new this.extensions.views.header({el: 'header'});
   	this.router = new router(this);
 
   }
