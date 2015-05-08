@@ -10,6 +10,15 @@
 	background-repeat: no-repeat;
 }
 
+article.article {
+  overflow: hidden;
+  background: #fefcfc;
+  padding: 10px 25px;
+  border-radius: 4px;
+  border: 1px solid rgba(0,0,0,0.1);
+  box-shadow: 0 2px 0 #dedada;
+}
+
 .article__content {
 	width: 800px;
 	max-width: 100%;
