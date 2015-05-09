@@ -17,9 +17,11 @@ module.exports = window.Backbone.View.extend({
 
 		return this;
 	},
+
 	events: {
 		'click p.try-again' : 'this.getNewRecords'
 	},
+
 	getNewRecords: function () {
 		var view = this;
 		var collection = this.collection;
@@ -34,6 +36,7 @@ module.exports = window.Backbone.View.extend({
         if (fragment === window.Backbone.history.fragment) {
 					view.model = collection.findWhere({slug: view.slug});
 					view.render();
+					view.triggerPrevAndNextUpdates();
 				}
 			},
 			error: function(){
@@ -44,8 +47,10 @@ module.exports = window.Backbone.View.extend({
 		return this;
 
 	},
+
 	toRender: function (options) {
 		options = (options || {});
+		console.log('toRender', this.model);
 		var templateData = this.model ? {article: this.model.toJSON()} : {};
 
 		templateData.loading = options.loading;
@@ -53,6 +58,7 @@ module.exports = window.Backbone.View.extend({
 
 		return this.$el.html(this.template(templateData));
 	},
+
 	render: function () {
 		var view = this;
 		var collection = view.collection;
@@ -61,17 +67,57 @@ module.exports = window.Backbone.View.extend({
     // subsequent fetches for new records would be handled somewhere other than here
 		if (collection.length < 1) {
 
+			// Triggering these events without a link param causes the components to be hidden
+			this.triggerPrevAndNextUpdates();
+
 			this.container.html(this.toRender({loading: true}));
 			this.getNewRecords();
 
 			return this;
 		}
+
+		// Triggering events that will update ui components
+		this.triggerPrevAndNextUpdates();
+		// window.Backbone.trigger('ui:updatePrev', {link: this.prevRoute()});
+		// window.Backbone.trigger('ui:updateNext', {link: this.nextRoute()});
+
 		this.container.html(this.toRender());
 
 		return this;
 	},
+
 	renderError: function () {
 		this.container.html(this.toRender({errors: true}));
+	},
+
+	triggerPrevAndNextUpdates: function(){
+		// With an empty collection, will this work? should do?
+		window.Backbone.trigger('ui:updatePrev', {link: this.prevRoute()});
+		window.Backbone.trigger('ui:updateNext', {link: this.nextRoute()});
+	},
+
+	getNextModel: function(){
+		var model = this.collection.getNextModel();
+		console.log('current model:', this.model);
+		return model;
+	},
+
+	getPrevModel: function(){
+		var model = this.collection.getPrevModel();
+		console.log('current model:', this.model);
+		return model;
+	},
+
+	nextRoute: function(){
+		var model = this.collection.getNextModel();
+		console.log('current model:', this.model);
+		return model? '#/'+ this.collection.tag +'/' + model.get('slug') : false;
+	},
+
+	prevRoute: function(){
+		var model = this.collection.getPrevModel();
+		console.log('current model:', this.model);
+		return model? '#/'+ this.collection.tag +'/' + model.get('slug') : false;
 	}
 
 });

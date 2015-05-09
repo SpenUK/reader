@@ -31,7 +31,7 @@ this["JST"]["article"] = Handlebars.template({"1":function(depth0,helpers,partia
   var stack1, helper, functionType="function", helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression, buffer = "      	<div class=\"article__wrapper ";
   stack1 = helpers.unless.call(depth0, (depth0 != null ? depth0.selected : depth0), {"name":"unless","hash":{},"fn":this.program(9, data),"inverse":this.noop,"data":data});
   if (stack1 != null) { buffer += stack1; }
-  buffer += "\">\n          <article class=\"article\" id=\""
+  buffer += "\">\n          <article class=\"article paper\" id=\""
     + escapeExpression(((helper = (helper = helpers.slug || (depth0 != null ? depth0.slug : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"slug","hash":{},"data":data}) : helper)))
     + "\">\n              <div class=\"article__header\">\n                <h1>"
     + escapeExpression(((helper = (helper = helpers.title || (depth0 != null ? depth0.title : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"title","hash":{},"data":data}) : helper)))
@@ -40,7 +40,7 @@ this["JST"]["article"] = Handlebars.template({"1":function(depth0,helpers,partia
   if (stack1 != null) { buffer += stack1; }
   buffer += "                    <a href=\""
     + escapeExpression(((helper = (helper = helpers.URL || (depth0 != null ? depth0.URL : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"URL","hash":{},"data":data}) : helper)))
-    + "\" target=\"_blank\"><i class=\"fa fa-wordpress\" alt=\"View at wordpress\"></i></a>\n                  </p>\n                \n                <hr>\n              </div>\n\n              <div class=\"article__content\">";
+    + "\" target=\"_blank\"><i class=\"fa fa-wordpress\" alt=\"View at wordpress\"></i></a>\n                  </p>\n\n              </div>\n\n              <div class=\"article__content\">";
   stack1 = ((helper = (helper = helpers.content || (depth0 != null ? depth0.content : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"content","hash":{},"data":data}) : helper));
   if (stack1 != null) { buffer += stack1; }
   return buffer + "</div>\n          </article>\n        </div>\n";
@@ -87,7 +87,7 @@ this["JST"]["articles"] = Handlebars.template({"1":function(depth0,helpers,parti
   if (stack1 != null) { buffer += stack1; }
   return buffer + "\n";
 },"9":function(depth0,helpers,partials,data,depths) {
-  var stack1, helper, lambda=this.lambda, escapeExpression=this.escapeExpression, functionType="function", helperMissing=helpers.helperMissing, buffer = "					<li class=\"article-listing\">\n						<div class=\"article-listing__container\">\n";
+  var stack1, helper, lambda=this.lambda, escapeExpression=this.escapeExpression, functionType="function", helperMissing=helpers.helperMissing, buffer = "					<li class=\"article-listing paper\">\n						<div class=\"article-listing__container\">\n";
   stack1 = helpers['with'].call(depth0, (depth0 != null ? depth0.author : depth0), {"name":"with","hash":{},"fn":this.program(10, data, depths),"inverse":this.noop,"data":data});
   if (stack1 != null) { buffer += stack1; }
   buffer += "							<div class=\"article-listing__details\">\n								<div class=\"truncater\">\n									<a class=\"article-listing__title truncate\" href=\"#/"
@@ -99,7 +99,7 @@ this["JST"]["articles"] = Handlebars.template({"1":function(depth0,helpers,parti
     + "</a> \n";
   stack1 = helpers['with'].call(depth0, (depth0 != null ? depth0.author : depth0), {"name":"with","hash":{},"fn":this.program(12, data, depths),"inverse":this.noop,"data":data});
   if (stack1 != null) { buffer += stack1; }
-  return buffer + "								</div>\n							</div>\n						</div>\n					</li>\n					<hr>\n";
+  return buffer + "								</div>\n							</div>\n						</div>\n					</li>\n";
 },"10":function(depth0,helpers,partials,data) {
   var helper, functionType="function", helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
   return "							<a href=\""
@@ -128,7 +128,7 @@ this["JST"]["articles"] = Handlebars.template({"1":function(depth0,helpers,parti
 },"useData":true,"useDepths":true});
 
 this["JST"]["header"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-  return "<div class=\"grid-container header__container\">\n	<div class=\"header__content\">\n\n		<div class=\"go-prev\">\n			<i class=\"fa fa-chevron-left\"></i>\n		</div>\n\n		<div class=\"go-next\">\n			<i class=\"fa fa-chevron-right\"></i>\n		</div>\n\n		<nav class=\"controls\">\n			<a href=\"/#\"><i class=\"fa fa-2x fa-home\"></i></a>\n		</nav>\n		\n\n		\n	</div>\n</div>";
+  return "<div class=\"grid-container header__container\">\n	<div class=\"header__content\">\n\n		<div class=\"go-prev hide\">\n			<i class=\"fa fa-chevron-left\"></i>\n		</div>\n\n		<div class=\"go-next hide\">\n			<i class=\"fa fa-chevron-right\"></i>\n		</div>\n\n		<nav class=\"controls\">\n			<a href=\"#\"><h1 class=\"logo\">WP Reader</h1></a>\n		</nav>\n		\n	</div>\n</div>";
 },"useData":true});
 
 this["JST"]["root"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
@@ -139,7 +139,7 @@ this["JST"]["root"] = Handlebars.template({"1":function(depth0,helpers,partials,
     + escapeExpression(((helper = (helper = helpers.name || (depth0 != null ? depth0.name : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"name","hash":{},"data":data}) : helper)))
     + "</a>\n		</li>\n";
 },"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-  var stack1, buffer = "<h2>Root View</h2>\n\n<ul class=\"tags\">\n";
+  var stack1, buffer = "<h2>Suggested Tags</h2>\n\n<ul class=\"tags\">\n";
   stack1 = helpers.each.call(depth0, (depth0 != null ? depth0.tags : depth0), {"name":"each","hash":{},"fn":this.program(1, data),"inverse":this.noop,"data":data});
   if (stack1 != null) { buffer += stack1; }
   return buffer + "</ul>";

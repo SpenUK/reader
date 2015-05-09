@@ -11,7 +11,7 @@
     {{#if article}}
       {{#with article}}
       	<div class="article__wrapper {{#unless selected}} out-of-focus{{/unless}}">
-          <article class="article" id="{{slug}}">
+          <article class="article paper" id="{{slug}}">
               <div class="article__header">
                 <h1>{{title}}</h1>
                 
@@ -21,8 +21,7 @@
                     {{/with}}
                     <a href="{{URL}}" target="_blank"><i class="fa fa-wordpress" alt="View at wordpress"></i></a>
                   </p>
-                
-                <hr>
+
               </div>
 
               <div class="article__content">{{{content}}}</div>

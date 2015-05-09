@@ -14,7 +14,7 @@
 			{{#each models}}
 
 				{{#with this.attributes}}
-					<li class="article-listing">
+					<li class="article-listing paper">
 						<div class="article-listing__container">
 							{{#with author}}
 							<a href="{{URL}}" target="_blank"><div class="avatar" style="background-image: url({{avatar_URL}});" alt="{{nice_name}}"></div></a>
@@ -29,7 +29,6 @@
 							</div>
 						</div>
 					</li>
-					<hr>
 				{{/with}}
 
 			{{/each}}
