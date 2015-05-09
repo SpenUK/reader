@@ -128,7 +128,7 @@ this["JST"]["articles"] = Handlebars.template({"1":function(depth0,helpers,parti
 },"useData":true,"useDepths":true});
 
 this["JST"]["header"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-  return "<div class=\"grid-container header__container\">\n	<div class=\"header__content\">\n\n		<div class=\"go-prev hide\">\n			<i class=\"fa fa-chevron-left\"></i>\n		</div>\n\n		<div class=\"go-next hide\">\n			<i class=\"fa fa-chevron-right\"></i>\n		</div>\n\n		<nav class=\"controls\">\n			<a href=\"#\"><h1 class=\"logo\">WP Reader</h1></a>\n		</nav>\n		\n	</div>\n</div>";
+  return "<div class=\"grid-container header__container\">\n	<div class=\"header__content\">\n\n		<a class=\"go-prev hide\">\n			<i class=\"fa fa-chevron-left\"></i>\n		</a>\n\n		<a class=\"go-next hide\">\n			<i class=\"fa fa-chevron-right\"></i>\n		</a>\n\n		<nav class=\"controls\">\n			<a href=\"#\"><h1 class=\"logo\">WP Reader</h1></a>\n		</nav>\n		\n	</div>\n</div>";
 },"useData":true});
 
 this["JST"]["root"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {

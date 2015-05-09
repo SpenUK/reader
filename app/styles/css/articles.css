@@ -40,7 +40,8 @@ article.article {
 .article-listing {
 	position: relative;
 	min-height: 100px;
-	/*padding: 0;*/
+	padding-left: 10px;
+	padding-right: 10px;
 	margin: 20px auto;
 	width: 100%;
 }

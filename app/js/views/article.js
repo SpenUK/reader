@@ -97,26 +97,20 @@ module.exports = window.Backbone.View.extend({
 	},
 
 	getNextModel: function(){
-		var model = this.collection.getNextModel();
-		console.log('current model:', this.model);
-		return model;
+		return this.collection.getNextModel(this.model);
 	},
 
 	getPrevModel: function(){
-		var model = this.collection.getPrevModel();
-		console.log('current model:', this.model);
-		return model;
+		return this.collection.getPrevModel(this.model);
 	},
 
 	nextRoute: function(){
-		var model = this.collection.getNextModel();
-		console.log('current model:', this.model);
+		var model = this.getNextModel();
 		return model? '#/'+ this.collection.tag +'/' + model.get('slug') : false;
 	},
 
 	prevRoute: function(){
-		var model = this.collection.getPrevModel();
-		console.log('current model:', this.model);
+		var model = this.getPrevModel();
 		return model? '#/'+ this.collection.tag +'/' + model.get('slug') : false;
 	}
 

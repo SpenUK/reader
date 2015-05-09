@@ -191,7 +191,7 @@ module.exports = function (grunt) {
             'js/bundle.js',
             'styles/**/*.css',
             'styles/fonts/{,*/}*.*',
-            'styles/fontawesome/fonts/{,*/}*.*'
+            'styles/css/vendor/font-awesome-4.3.0/**/*.*'
 
           ]}
         ]

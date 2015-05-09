@@ -18,7 +18,6 @@ module.exports = window.Backbone.Collection.extend({
 
   getNextModel: function(model){
     var currentIndex = this.indexOf(model);
-    console.log(currentIndex);
     if (currentIndex < 0) { return false; }
 
     return this.at((currentIndex +1 > this.length -1)?  false : currentIndex + 1);
@@ -26,7 +25,6 @@ module.exports = window.Backbone.Collection.extend({
 
   getPrevModel: function(model){
     var currentIndex = this.indexOf(model);
-    console.log(currentIndex);
 
     return this.at((currentIndex -1 < 0) ? false : currentIndex - 1);
   }
