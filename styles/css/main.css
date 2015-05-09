@@ -23,8 +23,11 @@ body {
   background-color: #eceaea;
   position: relative;
   color: #6d6e70;
-  overflow-x: hidden;
   font-family: 'Montserrat', sans-serif;
+
+  -webkit-overflow-scrolling: touch;
+  overflow: scroll;
+  overflow-x: hidden;
 }
 
 p {
@@ -84,14 +87,20 @@ header {
 	header .header__content {
 		height: 100%;
 		background-color: #eceaea;
-		padding: 0 50px;
+		line-height: 50px;
 	}
+
+		header .logo{
+			margin: 0;
+  		font-size: 1.4em;	
+		}
 
 		header .header__content i {
 			height: 50px;
 			width: 50px;
-			line-height: 50px;
+			
 			opacity: 0.6;
+			text-align: center;
 			text-shadow: 0 1px 0 rgba(0,0,0,.4);
 		}
 
@@ -101,12 +110,11 @@ header {
 
 		.header__content .go-prev,
 		.header__content .go-next {
+			transition: all 0.3s ease;
 			white-space: nowrap;
     	font-size: 1em;
-    	position: absolute;
-    	top: 0;
-    	text-align: center;
     	cursor: pointer;
+    	opacity: 1;
 		}
 
 			.header__content .go-prev:hover,
@@ -120,7 +128,16 @@ header {
 			}
 
 		.header__content .go-prev {
-			left: 0;
+			float: left
+		}
+
+			.header__content .go-prev i {
+
+			}
+
+		.header__content .go-prev.hide {
+			margin-left: -50px;
+			opacity: 0;
 		}
 
 			.header__content .go-prev i {
@@ -128,29 +145,46 @@ header {
 			}
 
 		.header__content .go-next {
-			right: 0;
+			float: right;
 		}
+
+			.header__content .go-next.hide {
+				margin-right: -50px;
+				opacity: 0;
+			}
 
 			.header__content .go-next i {
 				
 			}
 
 	header .header__content:before {
-		-webkit-transition: opacity 0.2s ease;
-		transition: opacity 0.2s ease;
+		-webkit-transition: opacity 0.3s ease;
+		transition: opacity 0.3s ease;
 		content: " ";
 		box-shadow: 0 0 8px rgba(0,0,0,.5);
-		/*max-width: 792px;*/
 		top: 0;
 		left: 8px;
 		right: 8px;
 	  margin: 0 auto;
 	  height: 100%;
-	  background-color: red;
 	  position: absolute;
 	  z-index: -1;
 	}
 
-	.app {
-		margin-top: 50px; /* Header height */
+	header.topped .header__content:before {
+		opacity: 0;
 	}
+	
+.app {
+	margin-top: 50px; /* Header height */
+}
+
+.paper {
+	overflow: hidden;
+  background: #fefcfc;
+  padding: 10px 25px;
+  border-radius: 4px;
+  border: 1px solid rgba(0,0,0,0.1);
+  box-shadow: 0 2px 0 #dedada;
+  box-sizing: border-box;
+}
