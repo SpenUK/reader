@@ -8,6 +8,16 @@ module.exports = window.Backbone.Collection.extend({
   isLoading: false,
   tag: 'web-development',
 
+  // initialize: function(){
+  //   return this;
+  // },
+
+  setTag: function(tag) {
+    this.tag = tag;
+    global.App.collections[this.tag] = this;
+    return this;
+  },
+
   url: function(){
     return 'https://public-api.wordpress.com/rest/v1.1/read/tags/'+ this.tag +'/posts';
   },
