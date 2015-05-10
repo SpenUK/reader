@@ -33,7 +33,7 @@ module.exports =  window.Backbone.Router.extend({
 			(new App.extensions.views.articles({
 				collection: collection
 			})
-			// rendering immediately after, keeps the calls to cached/non-cached views consistant
+			// rendering immediately after - keeps the calls to cached/non-cached views consistant
 			).render();
 
 		});
