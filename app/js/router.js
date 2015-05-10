@@ -28,26 +28,30 @@ module.exports =  window.Backbone.Router.extend({
 
 			var collection = findOrCreateCollectionByTag(tag);
 
-			// Not caching the view. Could be a future change if holding state for re-visits
-			// becomes desirable
-			(new App.extensions.views.articles({
-				collection: collection
-			})
-			// rendering immediately after - keeps the calls to cached/non-cached views consistant
-			).render();
+			var cacheName = tag;
+
+			App.views[cacheName] = (App.views[cacheName] || new App.extensions.views.articles({
+							collection: collection
+						}));
+
+			App.views[cacheName].render();
+
 
 		});
 
 		this.on('route:article' ,function(tag, slug){
 
 			var collection = findOrCreateCollectionByTag(tag);
-			// Get the first model in the collection with a macthing slug
-			// Returns undefined if there is no match, which the view will handle
-			(new App.extensions.views.article({
-				collection: collection,
-				slug: slug
-			})
-			).render();
+
+			var cacheName = tag+':'+slug;
+
+			App.views[cacheName] = (App.views[cacheName] || new App.extensions.views.articles({
+								collection: collection,
+								slug: slug
+						}));
+
+			App.views[cacheName].render();
+
 			
 		});
 
