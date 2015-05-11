@@ -44,7 +44,7 @@ describe('Routes', function(){
 			expect(App.collections['another-example-tag']).toBeDefined();
 		});
 
-		it('should create and cache a new view when a tag is given on the "article" route', function(){
+		it('should create and cache a new view when a tag and a slug are given on the "article" route', function(){
 			App.router.trigger('route:article', 'example-tag', 'example-article-slug');
 			expect(App.views['example-tag:example-article-slug']).toBeDefined();
 
