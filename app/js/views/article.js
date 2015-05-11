@@ -91,7 +91,6 @@ module.exports = window.Backbone.View.extend({
 	},
 
 	triggerPrevAndNextUpdates: function(){
-		// With an empty collection, will this work? should do?
 		window.Backbone.trigger('ui:updatePrev', {link: this.prevRoute()});
 		window.Backbone.trigger('ui:updateNext', {link: this.nextRoute()});
 	},

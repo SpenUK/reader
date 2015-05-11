@@ -54,6 +54,10 @@ module.exports = window.Backbone.View.extend({
 		var view = this;
 		var collection = view.collection;
 
+		// This is repeated between all views currently and so needs a refactor
+		window.Backbone.trigger('ui:updatePrev');
+		window.Backbone.trigger('ui:updateNext');
+
 		// Currently only fetching on render if the collection is empty,
 		// subsequent fetches for new records would be handled somewhere other than here
 		if (collection.length < 1) {
@@ -63,6 +67,7 @@ module.exports = window.Backbone.View.extend({
 
 			return this;
 		}
+
 		this.container.html(this.toRender());
 
 		return this;

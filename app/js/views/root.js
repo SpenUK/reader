@@ -17,6 +17,10 @@ module.exports = window.Backbone.View.extend({
 	},
 
 	toRender: function () {
+		// This is repeated between all views currently and so needs a refactor
+		window.Backbone.trigger('ui:updatePrev');
+		window.Backbone.trigger('ui:updateNext');
+		
 		return this.$el.html(this.template({tags: suggestedTags}));
 	},
 

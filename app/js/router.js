@@ -45,7 +45,7 @@ module.exports =  window.Backbone.Router.extend({
 
 			var cacheName = tag+':'+slug;
 
-			App.views[cacheName] = (App.views[cacheName] || new App.extensions.views.articles({
+			App.views[cacheName] = (App.views[cacheName] || new App.extensions.views.article({
 								collection: collection,
 								slug: slug
 						}));
