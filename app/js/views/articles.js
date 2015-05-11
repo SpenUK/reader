@@ -73,7 +73,6 @@ module.exports = window.Backbone.View.extend({
 		return this;
 	},
 	renderError: function () {
-		console.log('errors');
 		this.container.html(this.toRender({errors: true}));
 	}
 

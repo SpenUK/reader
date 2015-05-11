@@ -16,18 +16,17 @@ module.exports = window.Backbone.View.extend({
 	},
 	updateUiPrev: function(options){
     options = options || {};
-    console.log('updating Prev', options);
+
   	var $prev = this.$el.find('.go-prev');
   	if (options.link) {
   		$prev.removeClass('hide').attr('href', options.link);
   	} else {
-
   		$prev.addClass('hide').removeAttr('href');
   	}
   },
   updateUiNext: function(options){
     options = options || {};
-    console.log('updating Next', options);
+
   	var $next = this.$el.find('.go-next');
   	if (options.link) {
   		$next.removeClass('hide').attr('href', options.link);

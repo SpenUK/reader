@@ -26,8 +26,6 @@ module.exports = window.Backbone.View.extend({
 		var view = this;
 		var collection = this.collection;
 
-		console.log('get new');
-
 		var fragment = window.Backbone.history.fragment;
 		collection.fetch({
 			success: function(){
@@ -50,7 +48,6 @@ module.exports = window.Backbone.View.extend({
 
 	toRender: function (options) {
 		options = (options || {});
-		console.log('toRender', this.model);
 		var templateData = this.model ? {article: this.model.toJSON()} : {};
 
 		templateData.loading = options.loading;
