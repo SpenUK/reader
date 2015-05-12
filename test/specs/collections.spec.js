@@ -69,6 +69,78 @@ describe('Collections', function(){
 			
 		});
 
+		describe('Getting Prev and Next models', function() {
+
+			// beforeEach(function() {
+			// 	var collection = new App.extensions.collections.articles();
+			// 			collection.add(initialResponse);
+			// });
+
+			it('should return the prev model in it\'s set when given a model that it contains', function(){
+				var collection = (new App.extensions.collections.articles()).setTag('example-tag');
+				collection.add(initialResponse);
+
+				var inputModel = collection.findWhere({ID : '00003'});
+				var previousModel = collection.getPrevModel(inputModel);
+
+				expect(previousModel.get('ID')).toBe('00002');
+
+			});
+
+			it('should return the next model in it\'s set when given a model that it contains', function(){
+				var collection = (new App.extensions.collections.articles()).setTag('example-tag');
+				collection.add(initialResponse);
+
+				var inputModel = collection.findWhere({ID : '00003'});
+				var previousModel = collection.getNextModel(inputModel);
+
+				expect(previousModel.get('ID')).toBe('00004');
+
+			});
+
+			it('should return false when attempting to get the previous model if the input model is the first of the set', function(){
+				var collection = (new App.extensions.collections.articles()).setTag('example-tag');
+				collection.add(initialResponse);
+
+				var inputModel = collection.findWhere({ID : '00001'});
+				var previousModel = collection.getPrevModel(inputModel);
+
+				expect(!!previousModel).toBe(false);
+
+			});
+
+			it('should return false when attempting to get the next model if the input model is the last of the set', function(){
+				var collection = (new App.extensions.collections.articles()).setTag('example-tag');
+				collection.add(initialResponse);
+
+				var inputModel = collection.findWhere({ID : '00005'});
+				var previousModel = collection.getNextModel(inputModel);
+
+				expect(!!previousModel).toBe(false);
+
+			});
+
+			it('should take a model and return false if that model is not in it\'s set', function(){
+				var collection = (new App.extensions.collections.articles()).setTag('example-tag');
+				collection.add(initialResponse);
+
+				var inputModel1 = collection.findWhere({ID : '00000'});
+				var inputModel2 = collection.findWhere({ID : '00006'});
+				var inputModel3 = collection.findWhere({ID : '12345'});
+
+				expect(!!collection.getPrevModel(inputModel1)).toBe(false);
+				expect(!!collection.getNextModel(inputModel1)).toBe(false);
+
+				expect(!!collection.getPrevModel(inputModel2)).toBe(false);
+				expect(!!collection.getNextModel(inputModel2)).toBe(false);
+
+				expect(!!collection.getPrevModel(inputModel3)).toBe(false);
+				expect(!!collection.getNextModel(inputModel3)).toBe(false);
+
+			});	
+			
+		});
+
 	});
 });
 
