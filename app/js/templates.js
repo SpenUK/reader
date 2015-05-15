@@ -16,7 +16,7 @@ this["JST"]["article"] = Handlebars.template({"1":function(depth0,helpers,partia
   if (stack1 != null) { buffer += stack1; }
   return buffer + "\n";
 },"4":function(depth0,helpers,partials,data) {
-  return "    <h4>Loading...</h4>\n";
+  return "    <h4><i class=\"fa fa-spin fa-refresh\"></i> Loading...</h4>\n";
   },"6":function(depth0,helpers,partials,data) {
   var stack1, buffer = "\n";
   stack1 = helpers['if'].call(depth0, (depth0 != null ? depth0.article : depth0), {"name":"if","hash":{},"fn":this.program(7, data),"inverse":this.program(13, data),"data":data});
@@ -70,7 +70,7 @@ this["JST"]["articles"] = Handlebars.template({"1":function(depth0,helpers,parti
   if (stack1 != null) { buffer += stack1; }
   return buffer + "\n";
 },"4":function(depth0,helpers,partials,data) {
-  return "		<h4>Loading...</h4>\n";
+  return "		<h4><i class=\"fa fa-spin fa-refresh\"></i> Loading...</h4>\n";
   },"6":function(depth0,helpers,partials,data,depths) {
   var stack1, buffer = "";
   stack1 = helpers['if'].call(depth0, (depth0 != null ? depth0.models : depth0), {"name":"if","hash":{},"fn":this.program(7, data, depths),"inverse":this.program(14, data, depths),"data":data});

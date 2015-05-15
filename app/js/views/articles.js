@@ -15,7 +15,7 @@ module.exports = window.Backbone.View.extend({
 		return this;
 	},
 	events: {
-		'click p.try-again' : 'this.getNewRecords'
+		'click p.try-again' : 'getNewRecords'
 	},
 	getNewRecords: function () {
 		var view = this;
@@ -61,19 +61,20 @@ module.exports = window.Backbone.View.extend({
 		// Currently only fetching on render if the collection is empty,
 		// subsequent fetches for new records would be handled somewhere other than here
 		if (collection.length < 1) {
-
-			this.container.html(this.toRender({loading: true}));
+			global.App.views.master.renderToAppView( view, this.toRender({loading: true}));
+			
 			this.getNewRecords();
 
 			return this;
 		}
-
-		this.container.html(this.toRender());
+		global.App.views.master.renderToAppView( this, this.toRender());
 
 		return this;
 	},
 	renderError: function () {
-		this.container.html(this.toRender({errors: true}));
+		global.App.views.master.renderToAppView( this, this.toRender({errors: true}));
+		
+		return this;
 	}
 
 });
