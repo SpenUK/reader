@@ -3,13 +3,11 @@
 var templates = require('../templates.js');
 var suggestedTags = require('../suggestedTags');
 
+var SearchBar = require('./search-bar.js');
+
 module.exports = window.Backbone.View.extend({
 	
 	el: '<div>',
-
-	events: {
-		'submit form.search-var__form' : 'handleSearchForm'
-	},
 
 	template: templates.root,
 
@@ -18,17 +16,6 @@ module.exports = window.Backbone.View.extend({
 		this.container = options.container ? $(options.container) : global.App.views.master.$el;
 
 		return this;
-	},
-
-	handleSearchForm: function(e){
-		e.preventDefault();
-
-		// val isn't so rubust - improve this.
-		var val = $(e.target).find('input').val().trim();
-		if (!val.length) { return false; }
-
-		// Process val with regex? make sure that it's url safe.	
-		window.Backbone.history.navigate(val.split(' ')[0].trim(), {trigger: true});
 	},
 
 	toRender: function () {
@@ -41,9 +28,11 @@ module.exports = window.Backbone.View.extend({
 	},
 
 	render: function(){
-		this.container.html(this.toRender());
+		// this.container.html(this.toRender());
 
 		global.App.views.master.renderToAppView( this, this.toRender());
+
+		(new SearchBar()).render();
 
 		return this;
 	}
