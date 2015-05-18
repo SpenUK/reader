@@ -1,0 +1,32 @@
+.go-prev,
+.go-next {
+	transition: all 0.3s ease;
+	transition-property: opacity, margin-left, margin-right;
+	white-space: nowrap;
+	font-size: 1em;
+	cursor: pointer;
+	opacity: 1;
+
+	&.hover {
+		font-size: 1.2em;
+	}
+
+}
+
+.go-prev {
+	float: left;
+
+	&.hide {
+		margin-left: -50px;
+		opacity: 0;
+	}
+}
+
+.go-next {
+	float: right;
+
+	&.hide {
+		margin-right: -50px;
+		opacity: 0;
+	}
+}

@@ -1,0 +1,53 @@
+@mixin tag-color($color) {
+	background-color: $color;
+	@include box-shadow(0 2px 0 darken($color, 15));
+}
+
+ul.tags li {
+	padding: 0.4em 0.8em;
+	background-color: rgba(0,0,0,.1);
+	display: inline-block;
+	margin: 0.4em;
+	opacity: 1;
+
+	&.javascript {
+		@include tag-color(rgba(254, 218, 62, 1));
+	}
+	&.backbone-js {
+		@include tag-color(rgba(0, 113, 181, 1));
+	}
+	&.node-js {
+		@include tag-color(rgba(128, 189, 1, 1));
+	}
+	&.io-js {
+		@include tag-color(rgba(41, 40, 41, 1));
+	}
+	&.ruby {
+		@include tag-color(rgba(204, 52, 45, 1));
+	}
+	&.ruby-on-rails {
+		@include tag-color(rgba(152, 26, 33, 1));
+	}
+	&.ember-js {
+		@include tag-color(rgba(242, 56, 24, 1));
+	}
+	&.react-js {
+		@include tag-color(rgba(97, 218, 251, 1));
+	}
+
+	&:hover {
+		opacity: 1;
+	}
+
+	&:active {
+		@include transform(translateY(2px));
+		box-shadow: 0 0 0;
+		opacity: 1;
+		@include box-shadow(0 0px 0 rgba(0,0,0,0));
+	}
+}
+
+ul.tags a {
+	color: #fff;
+	text-shadow: 0 2px 0 rgba(0, 0, 0, 0.2);
+}

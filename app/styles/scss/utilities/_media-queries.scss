@@ -1,0 +1,37 @@
+@function downwards-of($breakpoint) {
+
+  @if map-has-key($break-points, $breakpoint) {
+    $i: map-get($break-points, $breakpoint);
+    $upper: map-get(map-get($i, "range"),"upper");
+
+    @return '#{$screen} and (max-width: #{$upper})';
+  }
+
+  @error 'no breakpoint found with value: #{$breakpoint}';
+}
+
+@function upwards-of($breakpoint) {
+
+  @if map-has-key($break-points, $breakpoint) {
+    $i: map-get($break-points, $breakpoint);
+    $lower: map-get(map-get($i, "range"),"lower");
+
+    @return '#{$screen} and (min-width: #{$lower})';
+  }
+
+  @error 'no breakpoint found with value: #{$breakpoint}';
+}
+
+@function in-range($breakpoint) {
+  
+   @if map-has-key($break-points, $breakpoint) {
+    $i: map-get($break-points, $breakpoint);
+    $upper: map-get(map-get($i, "range"),"upper");
+    $lower: map-get(map-get($i, "range"),"lower");
+
+
+    @return '#{$screen} and (min-width: #{$lower}) and (max-width: #{$upper})';
+  }
+
+  @error 'no breakpoint found with value: #{$breakpoint}';
+}

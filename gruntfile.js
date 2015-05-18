@@ -4,6 +4,7 @@ module.exports = function (grunt) {
   
   // Loading tasks Manually
   grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-connect');
@@ -22,7 +23,7 @@ module.exports = function (grunt) {
     dist: 'dist',
     test: 'test',
     jsfolder: '/js',
-    sassfolder: '/styles/sass',
+    sassfolder: '/styles/scss',
     cssfolder: '/styles/css',
   };
 
@@ -39,6 +40,12 @@ module.exports = function (grunt) {
         options: {
           livereload: true
         }
+      },
+
+      sass: {
+        // files: ['<%= config.app %><% config.sassfolder %>/{,*/}*.{scss,sass}'],
+        files: ['<%= config.app %>/styles/**/*.{scss,sass}'],
+        tasks: ['sass:server']
       },
 
       css: {
@@ -134,6 +141,43 @@ module.exports = function (grunt) {
       ]
     }, 
     // lint end
+
+    sass: {
+      dist: {
+        options: {
+          sourcemap: 'none'
+        },
+        files: [{
+          expand: true,
+          cwd: '<%= config.app %><%= config.sassfolder %>',
+          src: ['*.{scss,sass}'],
+          dest: '.tmp/styles',
+          ext: '.css'
+        }]
+      },
+      server: {
+        files: [{
+          expand: true,
+          cwd: '<%= config.app %><%= config.sassfolder %>',
+          src: ['{,*/}*.{scss,sass}'],
+          dest: '<%= config.app %><%= config.cssfolder %>',
+          ext: '.css'
+        }]
+      },
+      export: {
+        options: {
+          sourcemap: 'none'
+        },
+        files: [{
+          expand: true,
+          cwd: '<%= config.app %><%= config.sassfolder %>',
+          src: ['*.{scss,sass}'],
+          dest: '<%= config.dist %><%= config.cssfolder %>',
+          ext: '.css'
+        }]
+      }
+    }, // sass end
+
 
     handlebars: {
         all: {
@@ -253,6 +297,7 @@ module.exports = function (grunt) {
 
     grunt.task.run([
       'clean:server',
+      'sass:server',
       'jshint',
       'connect:livereload',
       'watch'
@@ -268,6 +313,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('export', [
     'clean:dist',
+    'sass:export',
     'copy:dist'
   ]);
 

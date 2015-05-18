@@ -1,0 +1,76 @@
+$column-count: 12;
+$gutter-w: 0px;
+
+$containerClass: 'grid-container';
+$rowClass: 'grid-row';
+
+$break-points: (
+
+  "small": (
+    "range": (
+      "lower": 0px,
+      "upper": 799px
+    ),
+    "container-width": 100%
+  ), 
+  "medium": (
+    "range": (
+      "lower": 800px,
+      "upper": 1440px
+    ),
+    "container-width": 800px
+  )
+
+);
+
+@include grid($containerClass, $rowClass, $column-count, $gutter-w, $break-points);
+
+html, body {
+	height: 100%;
+}
+
+html {
+	overflow: hidden;
+}
+
+body {
+  min-height: 100%;
+  background-color: $background-color;
+  position: relative;
+  color: $copy-color;
+  font-family: $copy-font-family;
+
+  -webkit-overflow-scrolling: touch;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+p {
+	font-size: 1.2em;
+}
+
+h2 {
+	font-size: 1.8em;
+}
+
+body.no-scroll, 
+html.no-scroll {
+	overflow: hidden;
+	overflow-x: hidden;
+	overflow-y: hidden;
+}
+
+a {
+	text-decoration: none;
+	color: $anchor-color;
+}
+
+ul {
+	padding-left: 0;
+	list-style: none;
+}
+
+.app {
+	padding: 20px 20px 80px 20px;
+	margin-top: 50px; /* Header height */
+}

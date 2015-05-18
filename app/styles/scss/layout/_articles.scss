@@ -1,33 +1,3 @@
-/* Avatar */
-
-.avatar {
-	width: 92px;
-	height: 92px;
-	border: 2px solid rgba(210,210,220, 1);
-	border-radius: 50%;
-	background-size: cover;
-	background-position: 50%;
-	background-repeat: no-repeat;
-}
-
-article.article {
-}
-
-.article__content {
-	width: 800px;
-	max-width: 100%;
-	margin: 0 auto;
-}
-
-.article__content *,
-.article__content img {
-	max-width: 100% !important;
-  height: auto !important;
-  word-wrap: break-word !important;
-}
-
-/* Listing */
-
 .articles-list hr {
 	border: none;
 	border-bottom: 1px solid rgba(0,0,0, .125);
@@ -54,7 +24,7 @@ article.article {
 	.article-listing__details {
 		display: inline-block;
 		vertical-align: middle;
-		max-width: 700px;
+		max-width: 700px; /* Fallback for browsers that don't support calc */
 		max-width: calc(100% - 100px);
 		box-sizing: border-box;
 		padding: 10px;
@@ -77,4 +47,3 @@ article.article {
 		display: inline-block;
 		vertical-align: middle;
 	}
-

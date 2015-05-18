@@ -133,13 +133,15 @@ this["JST"]["header"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"m
 
 this["JST"]["root"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
   var helper, functionType="function", helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
-  return "		<li>\n			<a href=\"#/"
+  return "		<li class=\""
+    + escapeExpression(((helper = (helper = helpers.name || (depth0 != null ? depth0.name : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"name","hash":{},"data":data}) : helper)))
+    + "\">\n			<a href=\"#/"
     + escapeExpression(((helper = (helper = helpers.name || (depth0 != null ? depth0.name : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"name","hash":{},"data":data}) : helper)))
     + "\">"
     + escapeExpression(((helper = (helper = helpers.name || (depth0 != null ? depth0.name : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"name","hash":{},"data":data}) : helper)))
     + "</a>\n		</li>\n";
 },"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-  var stack1, buffer = "<h2>Suggested Tags</h2>\n\n<ul class=\"tags\">\n";
+  var stack1, buffer = "<section class=\"search-bar\">\n	<div class=\"grid-container\">\n		<div class=\"grid-row\">\n			<form class=\"search-var__form\">\n				<label for=\"search\"><h2>Search by tag</h2></label>\n				<div class=\"search-bar__wrapper\">\n						<input type=\"text\" class=\"search-bar__search-input\" name=\"search\" placeholder=\"Example: Javascript\">			\n						<button class=\"submit\" value=\"Search\"><i class=\"fa fa-search\"></i><i class=\"fa fa-refresh fa-spin\"></i></button>\n				</div>\n			</form>\n		</div>\n	</div>\n	\n</section>\n\n<h2>Suggested Tags</h2>\n\n<ul class=\"tags\">\n";
   stack1 = helpers.each.call(depth0, (depth0 != null ? depth0.tags : depth0), {"name":"each","hash":{},"fn":this.program(1, data),"inverse":this.noop,"data":data});
   if (stack1 != null) { buffer += stack1; }
   return buffer + "</ul>";

@@ -1,8 +1,23 @@
+<section class="search-bar">
+	<div class="grid-container">
+		<div class="grid-row">
+			<form class="search-var__form">
+				<label for="search"><h2>Search by tag</h2></label>
+				<div class="search-bar__wrapper">
+						<input type="text" class="search-bar__search-input" name="search" placeholder="Example: Javascript">			
+						<button class="submit" value="Search"><i class="fa fa-search"></i><i class="fa fa-refresh fa-spin"></i></button>
+				</div>
+			</form>
+		</div>
+	</div>
+	
+</section>
+
 <h2>Suggested Tags</h2>
 
 <ul class="tags">
 	{{#each tags}}
-		<li>
+		<li class="{{name}}">
 			<a href="#/{{name}}">{{name}}</a>
 		</li>
 	{{/each}}

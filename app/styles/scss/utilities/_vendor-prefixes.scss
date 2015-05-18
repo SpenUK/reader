@@ -1,0 +1,21 @@
+@mixin transform ($options) {
+	-webkit-transform: $options;
+		 -moz-transform: $options;
+      -ms-transform: $options;
+       -o-transform: $options;
+          transform: $options;
+}
+
+@mixin transition ($options) {
+	-webkit-transition: $options;
+		 -moz-transition: $options;
+      -ms-transition: $options;
+       -o-transition: $options;
+          transition: $options;
+}
+
+@mixin box-shadow ($options) {
+  -webkit-box-shadow: $options;
+  -moz-box-shadow: $options;
+  box-shadow: $options;
+}
