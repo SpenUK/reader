@@ -27,8 +27,12 @@ module.exports = window.Backbone.View.extend({
 			success: function(){
 				// Only call render if the url fragment is the same, otherwise a user might navigate to another route,
 				// but the render would still be called and take effect.
-				if (fragment === window.Backbone.history.fragment) {
+				if (fragment !== window.Backbone.history.fragment) { return false; }
+
+				if (collection.length) {
 					view.render();
+				} else {
+					view.renderError();
 				}
 			},
 			error: function(){
@@ -54,14 +58,12 @@ module.exports = window.Backbone.View.extend({
 		var view = this;
 		var collection = view.collection;
 
-		// This is repeated between all views currently and so needs a refactor
-		window.Backbone.trigger('ui:updatePrev');
-		window.Backbone.trigger('ui:updateNext');
+		window.Backbone.trigger('ui:clearPrevAndNext');
 
 		// Currently only fetching on render if the collection is empty,
 		// subsequent fetches for new records would be handled somewhere other than here
 		if (collection.length < 1) {
-			global.App.views.master.renderToAppView( view, this.toRender({loading: true}));
+			this.renderLoading();
 			
 			this.getNewRecords();
 
@@ -71,9 +73,12 @@ module.exports = window.Backbone.View.extend({
 
 		return this;
 	},
+	renderLoading: function () {
+		global.App.views.master.renderToAppView( this, this.toRender({loading: true}));
+		return this;
+	},
 	renderError: function () {
 		global.App.views.master.renderToAppView( this, this.toRender({errors: true}));
-		
 		return this;
 	}
 

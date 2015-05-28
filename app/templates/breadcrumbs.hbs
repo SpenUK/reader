@@ -1,0 +1,8 @@
+<div class="breadcrumbs__container"s>
+	{{#each breadcrumbs }}
+		<div class="breadcrumbs__crumb">
+			<i class="fa fa-caret-right"></i>
+			<a class="truncate"{{#unless @last}} href="{{link}}"{{/unless}}>{{title}}</a>
+		</div>
+	{{/each}}
+</div>

@@ -127,9 +127,28 @@ this["JST"]["articles"] = Handlebars.template({"1":function(depth0,helpers,parti
   return buffer;
 },"useData":true,"useDepths":true});
 
-this["JST"]["header"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-  return "<div class=\"grid-container header__container\">\n	<div class=\"header__content\">\n\n		<a class=\"go-prev hide\">\n			<i class=\"fa fa-chevron-left\"></i>\n		</a>\n\n		<a class=\"go-next hide\">\n			<i class=\"fa fa-chevron-right\"></i>\n		</a>\n\n		<nav class=\"controls\">\n			<a href=\"#\"><h1 class=\"logo\">WP Reader</h1></a>\n		</nav>\n		\n	</div>\n</div>";
+this["JST"]["breadcrumbs"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
+  var stack1, helper, functionType="function", helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression, buffer = "		<div class=\"breadcrumbs__crumb\">\n			<i class=\"fa fa-caret-right\"></i>\n			<a class=\"truncate\"";
+  stack1 = helpers.unless.call(depth0, (data && data.last), {"name":"unless","hash":{},"fn":this.program(2, data),"inverse":this.noop,"data":data});
+  if (stack1 != null) { buffer += stack1; }
+  return buffer + ">"
+    + escapeExpression(((helper = (helper = helpers.title || (depth0 != null ? depth0.title : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"title","hash":{},"data":data}) : helper)))
+    + "</a>\n		</div>\n";
+},"2":function(depth0,helpers,partials,data) {
+  var helper, functionType="function", helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
+  return " href=\""
+    + escapeExpression(((helper = (helper = helpers.link || (depth0 != null ? depth0.link : depth0)) != null ? helper : helperMissing),(typeof helper === functionType ? helper.call(depth0, {"name":"link","hash":{},"data":data}) : helper)))
+    + "\"";
+},"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+  var stack1, buffer = "<div class=\"breadcrumbs__container\"s>\n";
+  stack1 = helpers.each.call(depth0, (depth0 != null ? depth0.breadcrumbs : depth0), {"name":"each","hash":{},"fn":this.program(1, data),"inverse":this.noop,"data":data});
+  if (stack1 != null) { buffer += stack1; }
+  return buffer + "</div>";
 },"useData":true});
+
+this["JST"]["header"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
+  return "<div class=\"grid-container header__container\">\n	<div class=\"header__content\">\n\n		<a class=\"go-prev hide\">\n			<i class=\"fa fa-chevron-left\"></i>\n		</a>\n\n		<a class=\"go-next hide\">\n			<i class=\"fa fa-chevron-right\"></i>\n		</a>\n\n		<nav class=\"navigation\" role=\"navigation\" style=\"height: 100%;\">\n			<a href=\"#\"><h1 class=\"logo\">WP Reader</h1></a>\n			<div class=\"breadcrumbs\"></div>\n		</nav>\n		\n	</div>\n</div>";
+  },"useData":true});
 
 this["JST"]["root"] = Handlebars.template({"1":function(depth0,helpers,partials,data) {
   var helper, functionType="function", helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
@@ -148,7 +167,7 @@ this["JST"]["root"] = Handlebars.template({"1":function(depth0,helpers,partials,
 },"useData":true});
 
 this["JST"]["search-bar"] = Handlebars.template({"compiler":[6,">= 2.0.0-beta.1"],"main":function(depth0,helpers,partials,data) {
-  return "	<div class=\"grid-container\">\n		<div class=\"grid-row\">\n			<form class=\"search-var__form\">\n				<label for=\"search\"><h2>Search by tag</h2></label>\n				<div class=\"search-bar__wrapper\">\n						<input type=\"text\" class=\"search-bar__search-input\" name=\"search\" placeholder=\"Example: Javascript\">			\n						<button class=\"submit\" value=\"Search\"><i class=\"fa fa-search\"></i><i class=\"fa fa-refresh fa-spin\"></i></button>\n				</div>\n			</form>\n		</div>\n	</div>\n";
+  return "	<div class=\"grid-container\">\n		<div class=\"grid-row\">\n			<form class=\"search-bar__form\">\n				<label for=\"search\"><h2>Search by tag</h2></label>\n				<div class=\"search-bar__wrapper\">\n						<input type=\"text\" class=\"search-bar__search-input\" name=\"search\" placeholder=\"Example: Javascript\">			\n						<button class=\"submit\" value=\"Search\"><i class=\"fa fa-search\"></i><i class=\"fa fa-refresh fa-spin\"></i></button>\n				</div>\n			</form>\n		</div>\n	</div>\n";
 },"useData":true});
  return this['JST'];
 })();

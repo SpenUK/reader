@@ -6,8 +6,9 @@
 	font-size: 1em;
 	cursor: pointer;
 	opacity: 1;
+	height: 100%;
 
-	&.hover {
+	&:hover {
 		font-size: 1.2em;
 	}
 

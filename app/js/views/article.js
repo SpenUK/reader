@@ -67,8 +67,7 @@ module.exports = window.Backbone.View.extend({
 			// Triggering these events without a link param causes the components to be hidden
 			this.triggerPrevAndNextUpdates();
 
-			// this.container.html(this.toRender({loading: true}));
-			global.App.views.master.renderToAppView( this, this.toRender({loading: true}));
+			this.renderLoading();
 			this.getNewRecords();
 
 			return this;
@@ -76,18 +75,19 @@ module.exports = window.Backbone.View.extend({
 
 		// Triggering events that will update ui components
 		this.triggerPrevAndNextUpdates();
-		// window.Backbone.trigger('ui:updatePrev', {link: this.prevRoute()});
-		// window.Backbone.trigger('ui:updateNext', {link: this.nextRoute()});
 
-		// this.container.html(this.toRender());
 		global.App.views.master.renderToAppView( this, this.toRender());
 
 		return this;
 	},
 
+	renderLoading: function () {
+		global.App.views.master.renderToAppView( this, this.toRender({loading: true}));
+		return this;
+	},
 	renderError: function () {
-		// this.container.html(this.toRender({errors: true}));
 		global.App.views.master.renderToAppView( this, this.toRender({errors: true}));
+		return this;
 	},
 
 	triggerPrevAndNextUpdates: function(){

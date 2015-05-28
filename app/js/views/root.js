@@ -19,17 +19,12 @@ module.exports = window.Backbone.View.extend({
 	},
 
 	toRender: function () {
-		// This is repeated between all views currently and so needs a refactor
-		window.Backbone.trigger('ui:updatePrev');
-		window.Backbone.trigger('ui:updateNext');
-		
+		window.Backbone.trigger('ui:clearPrevAndNext');
 
 		return this.$el.html(this.template({tags: suggestedTags}));
 	},
 
 	render: function(){
-		// this.container.html(this.toRender());
-
 		global.App.views.master.renderToAppView( this, this.toRender());
 
 		(new SearchBar()).render();

@@ -7,10 +7,16 @@ module.exports =  window.Backbone.Router.extend({
 		'': 'root',
 		':tag': 'articles',
 		':tag/:slug': 'article'
+		// default route?
 	},
 
 	initialize: function(){
 		var App = global.App;
+
+		this.on('route', function(){
+			// Every route change is to emit data, for now just the fragment so that breadcrumbs can be updated
+			window.Backbone.trigger('ui:updateBreadcrumbs', {fragment: window.Backbone.history.fragment});
+		});
 		
 		this.on('route:root' ,function(){
 

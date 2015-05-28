@@ -11,13 +11,20 @@ module.exports = window.Backbone.View.extend({
 	initialize: function(options){
 		options = (options || {});
 
-		console.log('searchbar init');
-
 		return this;
 	},
 
 	events: {
-		'submit form.search-var__form' : 'handleSearch'
+		'submit form.search-bar__form' : 'handleSearch'
+	},
+	// Unimplemented
+	// Event: 'keyup .search-bar__search-input'
+	inputFinished: function(){
+		clearTimeout(this.typeTimeout);
+		this.typeTimeout = setTimeout(function(){
+			// Delayed keyup functionality
+		}, 1000);
+		
 	},
 
 	handleSearch: function(e){
@@ -33,8 +40,6 @@ module.exports = window.Backbone.View.extend({
 
 	render: function(options){
 		options = (options || {});
-
-		console.log('searchbar render', this.$el);
 
 		this.$el.html(this.template());
 

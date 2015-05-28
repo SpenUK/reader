@@ -2,6 +2,8 @@
 
 var masterView = require('./views/master.js');
 var headerView = require('./views/header.js');
+var searchBarView = require('./views/search-bar.js');
+var breadcrumbsView = require('./views/breadcrumbs.js');
 
 var rootView = require('./views/root.js');
 var articleView = require('./views/article.js');
@@ -21,7 +23,9 @@ module.exports = {
     header          : headerView,
   	root 						: rootView,
 		article 				: articleView,
-		articles				: articlesView
+		articles				: articlesView,
+    searchBar       : searchBarView,
+    breadcrumbs     : breadcrumbsView
   },
 
   collections: {

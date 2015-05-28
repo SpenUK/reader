@@ -1,0 +1,28 @@
+.breadcrumbs {
+	display: inline-block;
+	height: 100%;
+	vertical-align:top;
+
+	 	.breadcrumbs__container {
+		height: 100%;
+		display: inline-block;
+	}
+
+	.breadcrumbs__crumb {
+		margin: 0;
+		margin-left: 10px;
+		display: inline-block;
+		vertical-align: top;
+		height: 50px;
+		
+		a {
+			max-width: 200px;
+		}
+
+		i {
+			width: auto;
+			display: inline-block;
+			line-height: 100%;
+		}
+	}
+}

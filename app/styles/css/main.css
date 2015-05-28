@@ -2,6 +2,9 @@
  *	Colors
  * ================= */
 /* ================= 
+ *	Dimensions
+ * ================= */
+/* ================= 
  *	Font stacks
  * ================= */
 .cover {
@@ -28,9 +31,10 @@
   white-space: nowrap;
   font-size: 1em;
   cursor: pointer;
-  opacity: 1; }
-  .go-prev.hover,
-  .go-next.hover {
+  opacity: 1;
+  height: 100%; }
+  .go-prev:hover,
+  .go-next:hover {
     font-size: 1.2em; }
 
 .go-prev {
@@ -61,7 +65,7 @@
   box-shadow: 0 2px 0 #d6d6d6;
   width: 100%;
   padding: 0.2em 0.6em;
-  padding-right: 40px;
+  padding-right: 45px;
   background-color: #fcfcfc; }
 
 section.search-bar button.submit {
@@ -306,29 +310,36 @@ ul {
   /* Header height */ }
 
 header {
+  height: 50px;
   position: fixed;
   left: 0;
   top: 0;
   right: 0;
+  background-color: #eceaea;
   z-index: 2000; }
+  header nav.navigation {
+    height: 50px; }
   header .header__container {
     height: 50px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
     background-color: #eceaea;
     position: relative;
     box-sizing: border-box; }
   header .header__content {
-    height: 100%;
-    background-color: #eceaea;
+    height: 50px;
     line-height: 50px; }
     header .header__content i {
       height: 50px;
+      line-height: 50px;
       width: 50px;
       opacity: 0.6;
       text-align: center;
       text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4); }
     header .header__content a {
-      color: #6d6e70; }
+      color: #6d6e70;
+      height: 100%;
+      display: inline-block;
+      vertical-align: top; }
     header .header__content:before {
       -webkit-transition: opacity 0.3s ease;
       transition: opacity 0.3s ease;
@@ -421,6 +432,26 @@ ul.tags li {
 ul.tags a {
   color: #fff;
   text-shadow: 0 2px 0 rgba(0, 0, 0, 0.2); }
+
+.breadcrumbs {
+  display: inline-block;
+  height: 100%;
+  vertical-align: top; }
+  .breadcrumbs .breadcrumbs__container {
+    height: 100%;
+    display: inline-block; }
+  .breadcrumbs .breadcrumbs__crumb {
+    margin: 0;
+    margin-left: 10px;
+    display: inline-block;
+    vertical-align: top;
+    height: 50px; }
+    .breadcrumbs .breadcrumbs__crumb a {
+      max-width: 200px; }
+    .breadcrumbs .breadcrumbs__crumb i {
+      width: auto;
+      display: inline-block;
+      line-height: 100%; }
 
 .articles-list hr {
   border: none;

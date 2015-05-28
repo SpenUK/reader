@@ -1,6 +1,7 @@
 'use strict';
 
-var templates = require('../templates.js'); 	 
+var templates = require('../templates.js');
+var  _ = window._;
 
 module.exports = window.Backbone.View.extend({
 	template: templates.header,
@@ -34,9 +35,39 @@ module.exports = window.Backbone.View.extend({
   		$next.addClass('hide').removeAttr('href');
   	}
   },
+  updateBreadcrumbs: function (options) {
+  	options = options || {};
+  	var fragment = options.fragment.replace(/^-+|-+$/g, ''); // trim leading and trailing hyphens
+  	var crumbs = _.filter(fragment.split('/'), function(s){
+  		return s.length; // ensuring that no 0 length strings pass through
+  	});
+
+  	console.log(crumbs);
+
+  	crumbs = _.map(crumbs, function(crumb, i){
+  		return {
+  			title: crumb,
+  			i: i,
+  			link: '#/' + fragment.substring(0, fragment.indexOf(crumb) + crumb.length)
+  		};
+  	});
+
+  	(new global.App.extensions.views.breadcrumbs({
+  		el: 'header .breadcrumbs',
+  		breadcrumbs: crumbs
+  	})).render();
+
+  	return this;
+  },
 	setListeners: function(){
 		// 
 		this.listenTo(window.Backbone, 'ui:updatePrev', this.updateUiPrev);
 		this.listenTo(window.Backbone, 'ui:updateNext', this.updateUiNext);
+		this.listenTo(window.Backbone, 'ui:clearPrevAndNext', function(){
+			this.updateUiPrev();
+			this.updateUiNext();
+		});
+
+		this.listenTo(window.Backbone, 'ui:updateBreadcrumbs', this.updateBreadcrumbs);
 	}
 });

@@ -1,35 +1,47 @@
 header {
+	height: $header-height;
 	position: fixed;
 	left: 0;
 	top: 0;
 	right: 0;
 
+	background-color: $background-color;
+
 	z-index: 2000;
 
+	nav.navigation {
+		height: $header-height;
+	}
+
 	.header__container {
-		height: 50px;
-		border-bottom: 1px solid rgba(0,0,0,.05);
-		background-color: #eceaea;
+		height: $header-height;
+		border-bottom: 1px solid rgba(0,0,0,.2);
+		background-color: $background-color;
+
 		position: relative;
 		box-sizing: border-box;
 	}
 
 	.header__content {
-		height: 100%;
-		background-color: #eceaea;
+		height: $header-height;
 		line-height: 50px;
 
 		i {
 			height: 50px;
+			line-height: 50px;
 			width: 50px;
 			
 			opacity: 0.6;
 			text-align: center;
 			text-shadow: 0 1px 0 rgba(0,0,0,.4);
+			
 		}
 
 		a {
 			color: #6d6e70;
+			height: 100%;
+			display: inline-block;
+			vertical-align: top;
 		}
 
 		&:before {
