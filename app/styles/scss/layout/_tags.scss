@@ -6,7 +6,7 @@
 ul.tags li,
 .tag-label {
 
-	@include tag-color(rgba(60, 60, 60, 1));
+	@include tag-color(rgba(60, 120, 140, 1));
 
 	&.javascript {
 		@include tag-color(rgba(254, 218, 62, 1));

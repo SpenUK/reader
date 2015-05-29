@@ -373,10 +373,10 @@ header {
 
 ul.tags li,
 .tag-label {
-  background-color: #3c3c3c;
-  -webkit-box-shadow: 0 2px 0 #161616;
-  -moz-box-shadow: 0 2px 0 #161616;
-  box-shadow: 0 2px 0 #161616; }
+  background-color: #3c788c;
+  -webkit-box-shadow: 0 2px 0 #254a56;
+  -moz-box-shadow: 0 2px 0 #254a56;
+  box-shadow: 0 2px 0 #254a56; }
   ul.tags li.javascript,
   .tag-label.javascript {
     background-color: #feda3e;
