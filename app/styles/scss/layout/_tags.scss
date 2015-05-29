@@ -3,12 +3,10 @@
 	@include box-shadow(0 2px 0 darken($color, 15));
 }
 
-ul.tags li {
-	padding: 0.4em 0.8em;
-	background-color: rgba(0,0,0,.1);
-	display: inline-block;
-	margin: 0.4em;
-	opacity: 1;
+ul.tags li,
+.tag-label {
+
+	@include tag-color(rgba(60, 60, 60, 1));
 
 	&.javascript {
 		@include tag-color(rgba(254, 218, 62, 1));
@@ -46,7 +44,15 @@ ul.tags li {
 	}
 }
 
-ul.tags a {
+ul.tags li {
+	margin: 0.4em;
+	padding: 0.4em 0.8em;
+	display: inline-block;
+	opacity: 1;
+}
+
+ul.tags a,
+.tag-label a {
 	color: #fff;
 	text-shadow: 0 2px 0 rgba(0, 0, 0, 0.2);
 }

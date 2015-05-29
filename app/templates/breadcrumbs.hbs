@@ -1,8 +1,20 @@
 <div class="breadcrumbs__container"s>
 	{{#each breadcrumbs }}
-		<div class="breadcrumbs__crumb">
-			<i class="fa fa-caret-right"></i>
-			<a class="truncate"{{#unless @last}} href="{{link}}"{{/unless}}>{{title}}</a>
-		</div>
+		{{#if @first}}
+			<div class="breadcrumbs__crumb tag-label {{title}}">
+				{{!-- <a class="truncate tag-label {{title}}" href="{{link}}">{{title}}</a> --}}
+				<a class="truncate" href="{{link}}">{{title}}</a>
+			</div>
+
+		{{ else }}
+
+			{{#unless @last}}
+				<div class="breadcrumbs__crumb">
+					<a class="truncate tag-label {{title}}" href="{{link}}">{{title}}</a>
+				</div>
+			{{/unless}}
+
+		{{/if}}
+		
 	{{/each}}
 </div>
