@@ -17,7 +17,7 @@ The app can be built using the 'grunt export' command.
 This will bundle the app out into the 'dist' directory - from there the app will word by opening 'index.html'.
 
 ## Publishing
-If a remote git repository is configured at GitHub the exported app can be pushed to a 'gh-pages' branch (and thus served on GitHub) using the 'grunt publish' command.
+If a remote git repository is configured at GitHub the exported app can be pushed to a 'gh-pages' branch (and thus served on GitHub) using the 'grunt publish' command.  
 This command will first run a number of tests and will not push live if any of those tests fail.
 
 ## Testing
