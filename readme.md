@@ -1,6 +1,8 @@
 # WP Reader
 Displays recent blog posts from wordpress by tag
 
+![Screenshot of the apps front-page](/screen-shot.png?raw=true)
+
 ### Uses:
 * Wordpress REST API for resources
 * Backbone for handling routes, views, models etc.
